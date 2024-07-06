@@ -13,35 +13,6 @@ services:
     image: nginx:latest
     restart: always
     volumes:
-      - ./nginx-configs:/etc/nginx/conf.d
-    ports:
-      - 11434:11434
-    networks:
-      - my-network
-
-volumes:
-  ollama:
-
-networks:
-  my-network:
-    external: false
-
-
-version: "3.0"
-services:
-
-  ollama:
-    image: ollama/ollama
-    restart: always
-    volumes:
-      - ollama:/root/.ollama
-    networks:
-      - my-network
-
-  nginx:
-    image: nginx:latest
-    restart: always
-    volumes:
       - nginx-configs:/etc/nginx/conf.d
     ports:
       - 11434:11434
